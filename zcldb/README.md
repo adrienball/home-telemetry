@@ -1,3 +1,4 @@
+# Notes
 The `general.xml` file is an updated version of the same file provided by the deCONZ plugin, in which the following 
 attribute set was added to the `Simple Metering` cluster in order to handle TEMPO attributes:
 ```
@@ -10,3 +11,7 @@ attribute set was added to the `Simple Metering` cluster in order to handle TEMP
   <attribute id="0x010A" name="Index HCHP/EJPHPM/BBRHPJR, Current Summation Delivered(2)" type="u48" access="r" required="m"></attribute>
 </attribute-set>
 ```
+
+This file is located in `/usr/share/deCONZ/zcl/general.xml`. 
+As pointed out in the [deCONZ User Manual](https://www.dresden-elektronik.de/funk/software/deconz.html?file=files/dresden-elektronik/content/downloads/dokumente/funktechnik/deCONZ-BHB-en.pdf), 
+in theory one should not update this file but rather provide additional custom XML files in order to extend the ZCLDB.
