@@ -1,0 +1,3996 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "panels": [],
+      "title": "Capteurs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 100,
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Studio"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Living Room Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Salon"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Green Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Bureau"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Outdoor Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Extérieur"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Yellow Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Aline"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 0,
+        "y": 1
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "humidity",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "/100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Humidité",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Studio"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Living Room Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Salon"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Green Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Bureau"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Outdoor Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Extérieur"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Yellow Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Aline"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 9,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "temperature",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Température",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 100,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Studio"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Living Room Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Salon"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Green Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Bureau"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Outdoor Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Extérieur"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Yellow Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Aline"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "temperature",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "battery"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Batterie des capteurs",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "max": 1100,
+          "min": 900,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1013
+              }
+            ]
+          },
+          "unit": "pressurehpa"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Studio"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Living Room Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Salon"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Green Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Bureau"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Outdoor Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Extérieur"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Yellow Bedroom Aqara Sensor"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Chambre Aline"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 5
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "pressure",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "+10"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Pression",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 16,
+      "panels": [],
+      "title": "Linky",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "00:15:8d:00:09:66:cc:41-01-0702"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "HP Bleu"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "00:15:8d:00:09:66:cc:41-02-0702"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "HC Bleu"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "00:15:8d:00:09:66:cc:41-03-0702"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "HP Blanc"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "00:15:8d:00:09:66:cc:41-04-0702"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "HC Blanc"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "00:15:8d:00:09:66:cc:41-05-0702"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "HP Rouge"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "00:15:8d:00:09:66:cc:41-06-0702"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "HC Rouge"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 0,
+        "y": 10
+      },
+      "id": 14,
+      "options": {
+        "displayLabels": [
+          "percent",
+          "name",
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "diff"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "$tag_uniqueid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "uniqueid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Répartition",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ZLinky_TIC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures pleines"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consumption 20"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures creuses"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 6,
+        "y": 10
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "range"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "HP Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  " * $bleu_hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $bleu_hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $blanc_hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $blanc_hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $rouge_hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $rouge_hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hc$/"
+            }
+          ]
+        }
+      ],
+      "title": "Total Tempo",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Total",
+            "binary": {
+              "left": "HC",
+              "reducer": "sum",
+              "right": "HP"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "HP Bleu",
+                "HC Bleu",
+                "HP Blanc",
+                "HC Blanc",
+                "HP Rouge",
+                "HC Rouge"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Bleu"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Bleu"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "Total"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Rouge"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Rouge"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Total"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HP Bleu"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HC Bleu"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HP Blanc"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HC Blanc"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 10,
+        "y": 10
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "range"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "HP Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  " * $bleu_hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $bleu_hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $blanc_hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $blanc_hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $rouge_hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $rouge_hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hc$/"
+            }
+          ]
+        }
+      ],
+      "title": "Détail Tempo",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ZLinky_TIC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures pleines"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consumption 20"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures creuses"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 14,
+        "y": 10
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "range"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "HP Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  " * $base"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $base"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $base"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $base"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $base"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $base"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hc$/"
+            }
+          ]
+        }
+      ],
+      "title": "Total Tarif Base",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Total",
+            "binary": {
+              "left": "HC",
+              "reducer": "sum",
+              "right": "HP"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "HP Bleu",
+                "HC Bleu",
+                "HP Blanc",
+                "HC Blanc",
+                "HP Rouge",
+                "HC Rouge"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Bleu"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Bleu"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "Total"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Rouge"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Rouge"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Total"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ZLinky_TIC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures pleines"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consumption 20"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures creuses"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 6,
+        "y": 15
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "range"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "HP Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hc$/"
+            }
+          ]
+        }
+      ],
+      "title": "Consommation",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Total",
+            "binary": {
+              "left": "HC",
+              "reducer": "sum",
+              "right": "HP"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "HP Bleu",
+                "HC Bleu",
+                "HP Blanc",
+                "HC Blanc"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Bleu"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Bleu"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "Total"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Blanc"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ZLinky_TIC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures pleines"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consumption 20"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures creuses"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 14,
+        "y": 15
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "range"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "HP Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  " * $hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Bleu",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Blanc",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "HP Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HP Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $hp"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "HC Rouge",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "HC Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "* $hc"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hc$/"
+            }
+          ]
+        }
+      ],
+      "title": "Total HCHP",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Total",
+            "binary": {
+              "left": "HC",
+              "reducer": "sum",
+              "right": "HP"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "HP Bleu",
+                "HC Bleu",
+                "HP Blanc",
+                "HC Blanc",
+                "HC Rouge",
+                "HP Rouge"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Bleu"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Bleu"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": 0
+                  }
+                },
+                "fieldName": "Total"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Rouge"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Rouge"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Total"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1500
+              },
+              {
+                "color": "dark-red",
+                "value": 3000
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ZLinky_TIC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures pleines"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Consumption 20"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Heures creuses"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(mean(\"consumption\")) FROM \"consumption\" WHERE $timeFilter GROUP BY time(1h) fill(none)",
+          "rawQuery": false,
+          "refId": "Heures pleines Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(mean(\"consumption\")) FROM \"consumption\" WHERE $timeFilter GROUP BY time(1h) fill(none)",
+          "rawQuery": false,
+          "refId": "Heures creuses Bleu",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_bleu_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(mean(\"consumption\")) FROM \"consumption\" WHERE $timeFilter GROUP BY time(1h) fill(none)",
+          "rawQuery": false,
+          "refId": "Heures pleines Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(mean(\"consumption\")) FROM \"consumption\" WHERE $timeFilter GROUP BY time(1h) fill(none)",
+          "rawQuery": false,
+          "refId": "Heures creuses Blanc",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_blanc_hc$/"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(mean(\"consumption\")) FROM \"consumption\" WHERE $timeFilter GROUP BY time(1h) fill(none)",
+          "rawQuery": false,
+          "refId": "Heures pleines Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hp$/"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_sensor",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1h"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(mean(\"consumption\")) FROM \"consumption\" WHERE $timeFilter GROUP BY time(1h) fill(none)",
+          "rawQuery": false,
+          "refId": "Heures creuses Rouge",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "consumption"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "uniqueid",
+              "operator": "=~",
+              "value": "/^$unique_id_rouge_hc$/"
+            }
+          ]
+        }
+      ],
+      "title": "Consommation électrique",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Consommation",
+            "binary": {
+              "left": "ZLinky_TIC",
+              "reducer": "sum",
+              "right": "Consumption 20"
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "$tag_sensor"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "MIbzi9Wgz"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 9000
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "MIbzi9Wgz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sensor"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "power",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "power"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Puissance apparente",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "description": "Prix du wH en tarif base",
+        "hide": 2,
+        "label": "Tarif base",
+        "name": "base",
+        "query": "0.0002276",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en jour bleu Heures Creuses",
+        "hide": 2,
+        "label": "Bleu HC",
+        "name": "bleu_hc",
+        "query": "0.0001056",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en jour bleu Heures Pleines",
+        "hide": 2,
+        "label": "Bleu HP",
+        "name": "bleu_hp",
+        "query": "0.0001369",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en jour blanc Heures Creuses",
+        "hide": 2,
+        "label": "Blanc HC",
+        "name": "blanc_hc",
+        "query": "0.0001246",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en jour blanc Heures Pleines",
+        "hide": 2,
+        "label": "Blanc HP",
+        "name": "blanc_hp",
+        "query": "0.0001654",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en jour rouge Heures Creuses",
+        "hide": 2,
+        "label": "Rouge HC",
+        "name": "rouge_hc",
+        "query": "0.0001328",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en jour rouge Heures Pleines",
+        "hide": 2,
+        "label": "Rouge HP",
+        "name": "rouge_hp",
+        "query": "0.0007324",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en Heures Creuses",
+        "hide": 2,
+        "label": "HC",
+        "name": "hc",
+        "query": "0.0001828",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "Prix du Wh en Heures Pleines",
+        "hide": 2,
+        "label": "HP",
+        "name": "hp",
+        "query": "0.0002460",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "",
+        "name": "unique_id_bleu_hp",
+        "query": "00:15:8d:00:09:66:cc:41-01-0702",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "",
+        "name": "unique_id_bleu_hc",
+        "query": "00:15:8d:00:09:66:cc:41-02-0702",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "",
+        "name": "unique_id_blanc_hp",
+        "query": "00:15:8d:00:09:66:cc:41-03-0702",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "",
+        "name": "unique_id_blanc_hc",
+        "query": "00:15:8d:00:09:66:cc:41-04-0702",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "",
+        "name": "unique_id_rouge_hp",
+        "query": "00:15:8d:00:09:66:cc:41-05-0702",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "",
+        "name": "unique_id_rouge_hc",
+        "query": "00:15:8d:00:09:66:cc:41-06-0702",
+        "skipUrlSync": false,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Smart Home",
+  "uid": "Z1A9irWgz",
+  "version": 64,
+  "weekStart": "monday"
+}
