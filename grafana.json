@@ -2831,11 +2831,13 @@
                 "HP Bleu",
                 "HC Bleu",
                 "HP Blanc",
-                "HC Blanc"
+                "HC Blanc",
+                "HP Rouge",
+                "HC Rouge"
               ],
               "reducer": "sum"
             },
-            "replaceFields": true
+            "replaceFields": false
           }
         },
         {
@@ -2878,10 +2880,34 @@
                   "options": {}
                 },
                 "fieldName": "HC Blanc"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HP Rouge"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "HC Rouge"
               }
             ],
             "match": "any",
             "type": "exclude"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Total"
+              ]
+            }
           }
         }
       ],
@@ -4490,6 +4516,6 @@
   "timezone": "",
   "title": "Smart Home",
   "uid": "Z1A9irWgz",
-  "version": 70,
+  "version": 71,
   "weekStart": "monday"
 }
