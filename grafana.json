@@ -4230,6 +4230,24 @@
             },
             "replaceFields": true
           }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "greater",
+                  "options": {
+                    "value": 40000
+                  }
+                },
+                "fieldName": "Consommation"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
         }
       ],
       "type": "timeseries"
@@ -4325,12 +4343,6 @@
                 "$__interval"
               ],
               "type": "time"
-            },
-            {
-              "params": [
-                "sensor"
-              ],
-              "type": "tag"
             },
             {
               "params": [
@@ -4516,6 +4528,6 @@
   "timezone": "",
   "title": "Smart Home",
   "uid": "Z1A9irWgz",
-  "version": 71,
+  "version": 73,
   "weekStart": "monday"
 }
