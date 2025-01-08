@@ -8,6 +8,7 @@ This repository contains various scripts and config files used to configure a ho
 ### Zigbee Devices
 - [Aqara Temperature and Humidity sensors](https://www.aqara.com/en/product/temperature-humidity-sensor/)
 - [Zlinky_TIC](https://lixee.fr/): self-powered zigbee device reporting Linky data
+- [Heiman Smart Air Quality Monitor HS3AQ-EFA-3.0](https://www.heimantech.com/product/index.php?type=detail&id=7): CO2, Temperature and humidity sensor
 
 ## Software requirements
 - Python>=3.9
