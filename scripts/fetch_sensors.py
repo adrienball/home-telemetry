@@ -12,6 +12,7 @@ MEASUREMENTS = {
     "ZHATemperature": "temperature",
     "ZHAHumidity": "humidity",
     "ZHAPressure": "pressure",
+    "ZHAAirQuality": "airqualityppb",
 }
 
 
